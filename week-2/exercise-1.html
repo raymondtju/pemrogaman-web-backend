@@ -1,0 +1,99 @@
+<!--
+  Content: Javacript Object and Class
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.88.1" />
+    <title>Product example · Bootstrap v5.1</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="css/product.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <main>
+      <div
+        class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"
+      >
+        <div class="col-md-5 mx-auto">
+          <h1 class="display-4 fw-normal">Punny Web</h1>
+          <div class="mt-3 mb-4">
+            <h2 id="artist">Penyanyi</h2>
+            <input
+              type="text"
+              class="form-control mb-3 mt-3 text-center"
+              value="judul lagu"
+              id="songTitle"
+              readonly
+            />
+            <p class="text-center" id="songLyrics">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non ipsa
+              sequi, accusamus eligendi, quisquam nesciunt iure magnam odio ab
+              deleniti exercitationem eos, natus a fugiat nam neque vero ipsam
+              eveniet.
+            </p>
+          </div>
+          <a class="btn btn-outline-secondary" href="#"
+            >Jumlah Kata: <span id="count-words"></span
+          ></a>
+        </div>
+        <!-- <div class="product-device shadow-sm d-none d-md-block"></div> -->
+        <div
+          class="product-device product-device-2 shadow-sm d-none d-md-block"
+        ></div>
+      </div>
+    </main>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+      let lirik_lagu = {
+        status: true,
+        data: {
+          artist: "Westlife",
+          songTitle: "I Have A Dream",
+          songLyrics:
+            "I have a dream, a song to sing\nTo help me cope with anything\nIf you see the wonder (wonder) of a fairy tale\nYou can take the future even if you fail",
+        },
+      };
+      if (lirik_lagu.status) {
+        document.getElementById("artist").innerText = lirik_lagu.data.artist;
+        console.log(document.getElementById("songTitle"));
+        document
+          .getElementById("songTitle")
+          .setAttribute("value", lirik_lagu.data.songTitle);
+        document.getElementById("songLyrics").innerText =
+          lirik_lagu.data.songLyrics;
+
+        document.getElementById("count-words").innerText =
+          lirik_lagu.data.songLyrics.split(" ").length;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!--
+  Content: Javacript Object and Class
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.88.1" />
+    <title>Product example · Bootstrap v5.1</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="css/product.css" rel="stylesheet" /> -->
+  </head>
+
+  <body>
+    <main>
+      <div
+        class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center"
+      >
+        <div class="col-md-5 mx-auto">
+          <h1 class="display-4 fw-normal">Punny Web</h1>
+          <div class="mt-3 mb-4">
+            <!-- text config -->
+            <div
+              class="btn-group"
+              role="group"
+              aria-label="Basic checkbox toggle button group"
+            >
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="editor-bold"
+                autocomplete="off"
+                onclick="editor.setBold()"
+              />
+              <label
+                class="btn btn-outline-secondary"
+                for="editor-bold"
+                id="editor-bold"
+                >B</label
+              >
+
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="editor-italic"
+                autocomplete="off"
+                onclick="editor.setItalic()"
+              />
+              <label
+                class="btn btn-outline-secondary"
+                for="editor-italic"
+                id="editor-italic"
+                >I</label
+              >
+
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="editor-underline"
+                autocomplete="off"
+                onclick="editor.setUnderline()"
+              />
+              <label
+                class="btn btn-outline-secondary"
+                for="editor-underline"
+                id="editor-underline"
+                >U</label
+              >
+
+              <input
+                type="button"
+                class="btn-check"
+                id="editor-mode"
+                autocomplete="off"
+                onclick="editor.setMode()"
+                checked="false"
+              />
+              <label
+                class="btn btn-outline-secondary"
+                for="editor-mode"
+                id="editor-mode"
+                >read</label
+              >
+
+              <input
+                type="button"
+                class="btn-check"
+                id="editor-align"
+                autocomplete="off"
+                onclick="editor.setAlign()"
+                checked="false"
+              />
+              <label
+                class="btn btn-outline-secondary"
+                for="editor-align"
+                id="editor-align"
+                >center</label
+              >
+
+              <button class="btn btn-outline-secondary">
+                <input
+                  type="color"
+                  id="editor-color"
+                  style="height: 16px; width: 24px"
+                  onchange="editor.setColor()"
+                />
+              </button>
+            </div>
+
+            <!-- content -->
+            <div id="editor-content-container" class="mt-4">
+              <p onchange="" id="editor-content">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non
+                ipsa sequi, accusamus eligendi, quisquam nesciunt iure magnam
+                odio ab deleniti exercitationem eos, natus a fugiat nam neque
+                vero ipsam eveniet.
+              </p>
+            </div>
+
+            <!-- zoom in or out -->
+            <div class="btn-group me-2" role="group" aria-label="First group">
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                onclick="editor.zoomOut()"
+              >
+                -
+              </button>
+              <input
+                type="text"
+                style="text-align: center"
+                id="zoom-value"
+                value="100%"
+                readonly
+              />
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                onclick="editor.zoomIn()"
+              >
+                +
+              </button>
+            </div>
+          </div>
+          <!-- <a class="btn btn-outline-secondary" href="#">Jumlah Kata: <span id="count-words"></span></a> -->
+          <button
+            onclick="app.setColorMode()"
+            type="button"
+            class="btn btn-secondary"
+          >
+            Change Color Mode (Current: <span id="color-mode">Light</span> Mode)
+          </button>
+        </div>
+        <!-- <div class="product-device shadow-sm d-none d-md-block"></div> -->
+        <div
+          class="product-device product-device-2 shadow-sm d-none d-md-block"
+        ></div>
+      </div>
+    </main>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./js/challenge.js"></script>
+  </body>
+</html>
