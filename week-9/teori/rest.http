@@ -1,0 +1,53 @@
+GET http://localhost:3000/ping
+
+### signup
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "username": "udin",
+  "email": "ayam@telur.com",
+  "password": "ucok"
+}
+
+### signin
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+  "username": "udinssss",
+  "password": "ucok"
+}
+
+### update username
+PUT http://localhost:3000/auth/user/34
+Content-Type: application/json
+
+{
+  "newUsername": "udinssss",
+  "password": "ucok"
+}
+
+### delete username
+DELETE  http://localhost:3000/auth/user/34
+Content-Type: application/json
+
+{
+  "username": "udins",
+  "password": "ucokS",
+}
+
+### get all inactive user
+GET http://localhost:3000/user/inactive
+
+### deactivate user
+POST http://localhost:3000/auth/deactivate/34
+Content-Type: application/json
+
+{
+  "password": "ucok"
+}
+
+
+### get user by id
+GET http://localhost:3000/user/34
