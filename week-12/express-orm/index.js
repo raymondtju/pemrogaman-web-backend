@@ -8,9 +8,25 @@ member.sync();
 // express app and its middlewares
 const app = express();
 app.use(express.json());
+app.set("view engine", "ejs");
 
-app.get("/", (_req, res) => {
-  res.send(seq.authenticate());
+app.get("/", async (_req, res) => {
+  const members = await member.findAll();
+  res.render("index", { members });
+});
+
+app.get("/create", (_req, res) => {
+  res.render("create");
+});
+
+app.get("/edit/:id", async (req, res) => {
+  const { id } = req.params;
+  const memberToUpdate = await member.findOne({
+    where: {
+      id,
+    },
+  });
+  res.render("edit", { memberToUpdate });
 });
 
 app.get("/api/members", async (_req, res) => {
