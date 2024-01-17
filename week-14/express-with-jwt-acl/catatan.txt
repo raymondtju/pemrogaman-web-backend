@@ -1,0 +1,32 @@
+code menrapkan acl untuk manage acc control list pada file acl.json yg terdiri dari 3 role: regular \ admin \ special
+
+acl disana menerapkan admin dan special account dapat mengakses semua routigngan yang ada, sedangkan role "regular" hanya dapat login, logout dan ke main page saja serta diblokir semua akses kedalam routing admin
+
+-----
+
+acl.config({
+  filename: "acl.json",
+  baseUrl: "/",
+  defaultRole: "regular",
+  denyCallback: (res) => {
+    res.render("forbidden");
+  },
+});
+--> acl config disini menerapkan denial cb ke routingan forbidden
+
+-----
+
+app.use(acl.authorize.unless({ path: ["/", "/login", "/logout"] }));
+--> code disni membuat /, /login, serta /logout dapat diakses secara universal tanpa diprotect
+
+-----
+
+terdapat juga passMiddleware yang berfungsi untuk decoding payload agar bisa dipass ke acl yang membaca req.decoded seacara default pada librarynya
+referensi code: https://github.com/nyambati/express-acl/blob/fc7d3e11051566aad3a2d1b63d93c7528eb3f76b/lib/common.js#L232
+
+-----
+
+karena jwt telah terdecode, maka kita tinggal menggunakannya di bbrp configuration seperti
+- admin tidak bisa create, edit view user admin lainnya juga tetapi dapat crud regular user
+- admin tidak bisa create, edit, view user special
+- special bisa membuat admin maupun akun special barunya
